@@ -27,6 +27,6 @@ You can run commands in the container:
 
 ```
 docker run -it --rm -p 3000:3000 nebula bundle exec rake db:migrate
-sudo docker run -it --rm -v "$PWD":/usr/src/app -p 3000:3000 nebula rails generate model Library
+docker run -it --rm -v "$PWD":/usr/src/app -p 3000:3000 nebula rails generate model Library
 
 ```
