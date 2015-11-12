@@ -1,0 +1,7 @@
+<h1><%= params[:title] %></h1>
+<br>
+
+<%= video_tag params[:video], :size => "640x480", :controls => true %>
+
+<br>
+<%= link_to "Play Random", '/random' %>
