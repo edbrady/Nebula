@@ -40,7 +40,7 @@ git clone git@github.com:edbrady/Nebula.git
 cd Nebula
 docker build -t nebula .
 docker run -it nebula bundle exec rake db:migrate
-docker run -it -v /my/video/folder:/usr/src/app:ro nebula bundle exec rake library:import
+docker run -it -v /my/video/folder:/usr/src/app/assets/videos:ro nebula bundle exec rake library:import
 docker run -d --name nebula -v /my/video/folder:/usr/src/app/assets/videos:ro -p 3000:3000 nebula
 ```
 Now you can go to http://localhost:3000/ and you will be prompted with a login page. Click the link to create a new account, and then start browsing your library.
