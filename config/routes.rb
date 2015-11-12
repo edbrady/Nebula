@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     
     # Routes for Librarian
     get '/list' => 'librarian#list'
+    get '/random' => 'librarian#random'
+    get '/watch' => 'librarian#watch'
     
     
     get '/login' => 'sessions#new'
