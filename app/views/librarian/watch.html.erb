@@ -1,7 +1,27 @@
 <h1><%= params[:title] %></h1>
 <br>
 
-<%= video_tag params[:video], :size => "640x480", :controls => true %>
+<% if (params[:contenttype] == "video/x-flv") %>
+  <object id="f4Player" width="640" height="480" type="application/x-shockwave-flash" data="<%= asset_path('player.swf?v1.3.5') %>">
+    <param name="movie" value="<%= asset_path('player.swf?v1.3.5') %>" />
+    <param name="quality" value="high" />
+    <param name="menu" value="false" />
+    <param name="scale" value="noscale" />
+    <param name="allowfullscreen" value="true">
+    <param name="allowscriptaccess" value="always">
+    <param name="swlivevonnect" value="true" />
+    <param name="cachebusting" value="false">
+    <param name="flashvars"   value="skin=<%= asset_path('mySkin.swf') %>&video=<%= URI.escape("/videos/" + params[:video]) %>"/>
+  </object>
 
+<% elsif (params[:contenttype] == "video/mp4") %>
+
+  <%= video_tag params[:video], :size => "640x480", :controls => true %>
+
+<% else %>
+ <h2>Video type not yet supported!</h2>
+ <h3>Type: <%= params[:contenttype] %></h3>
+<% end %>
 <br>
+<%= link_to "View List", root_url %>
 <%= link_to "Play Random", '/random' %>
